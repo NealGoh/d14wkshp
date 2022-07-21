@@ -68,7 +68,10 @@ public class PersonController {
         String lName = personForm.getLastName();
 
         if (fName != null && fName.length() > 0 && lName != null && lName.length() > 0) {
+            Person newPerson = new Person(fName, lName);
+            perSvc.addPerson(newPerson);
 
+            return "redirect:/personList";
         }
         
         model.addAttribute("errorMessage", errorMessage);
